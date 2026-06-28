@@ -1,0 +1,589 @@
+/* =====================================================
+   FAKE NEWS DETECTION DASHBOARD
+   STYLE.CSS (PART 1 OF 2)
+===================================================== */
+
+/* ===============================
+   BACKGROUND
+================================ */
+
+[data-testid="stAppViewContainer"]{
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.03)
+        ),
+        url("https://i.postimg.cc/kGLfstmY/newspaper-template.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+
+[data-testid="stAppViewContainer"]::before{
+    background:transparent !important;
+}
+
+/* ===============================
+   GLOBAL
+================================ */
+
+body{
+    font-family:"Segoe UI",Roboto,Arial,sans-serif !important;
+}
+
+.block-container{
+    background:transparent !important;
+    padding-top:1.5rem;
+    color:#1a1a1a;
+}
+
+/* ===============================
+   MAIN TITLE
+================================ */
+
+h1{
+
+    text-align:center;
+
+    font-size:68px !important;
+
+    font-weight:900 !important;
+
+    color:#0b1f3a !important;
+
+    letter-spacing:1px;
+
+    margin-bottom:8px;
+}
+
+h2{
+
+    color:#0b1f3a !important;
+
+    font-weight:800 !important;
+}
+
+h3{
+
+    text-align:center;
+
+    font-size:32px !important;
+
+    font-weight:700 !important;
+
+    color:#1d3557 !important;
+
+    margin-bottom:18px;
+}
+
+/* ===============================
+   NEWS CARDS
+================================ */
+
+.news-card{
+
+    background:rgba(255,255,255,.76);
+
+    padding:20px;
+
+    margin-bottom:18px;
+
+    border-radius:16px;
+
+    border:1px solid rgba(0,0,0,.08);
+
+    box-shadow:0 8px 20px rgba(0,0,0,.10);
+
+    backdrop-filter:blur(10px);
+
+    transition:.3s;
+}
+
+.news-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 12px 24px rgba(0,0,0,.15);
+}
+
+.news-card h3{
+
+    text-align:left;
+
+    font-size:24px !important;
+
+    font-weight:700;
+
+    color:#0b1f3a;
+
+    margin-bottom:10px;
+}
+
+.news-card p{
+
+    color:#222;
+
+    font-size:17px;
+
+    line-height:1.8;
+}
+
+/* ===============================
+   CATEGORY TAG
+================================ */
+
+.tag{
+
+    display:inline-block;
+
+    background:#d71920;
+
+    color:white;
+
+    padding:6px 12px;
+
+    border-radius:6px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+}
+
+/* ===============================
+   LIVE BADGE
+================================ */
+
+.live-now-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:rgba(215,25,32,.12);
+
+    border:1px solid rgba(215,25,32,.40);
+
+    color:#d71920;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.live-now-badge .dot{
+
+    width:10px;
+
+    height:10px;
+
+    background:#ff1e2d;
+
+    border-radius:50%;
+
+    box-shadow:0 0 10px #ff1e2d;
+
+    animation:blinkDot 1s infinite;
+}
+
+.live-now-badge::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    left:-100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+
+    animation:pulseMove 2.5s infinite;
+}
+
+@keyframes blinkDot{
+
+    0%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:.3;
+        transform:scale(.75);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+@keyframes pulseMove{
+
+    from{
+        left:-100%;
+    }
+
+    to{
+        left:100%;
+    }
+}
+
+/* ===============================
+   BREAKING NEWS TICKER
+================================ */
+
+.breaking-container{
+
+    width:100%;
+
+    overflow:hidden;
+
+    position:relative;
+
+    border-radius:14px;
+
+    margin-bottom:24px;
+
+    background:rgba(215,25,32,.85);
+
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+
+    backdrop-filter:blur(8px);
+}
+
+.breaking-label{
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    bottom:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:0 18px;
+
+    background:#0b1f3a;
+
+    color:white;
+
+    font-weight:800;
+
+    font-size:14px;
+
+    z-index:5;
+}
+
+.breaking-ticker{
+
+    white-space:nowrap;
+
+    display:inline-block;
+
+    padding:14px 20px 14px 125px;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    animation:tickerMove 28s linear infinite;
+}
+
+@keyframes tickerMove{
+
+    from{
+        transform:translateX(100%);
+    }
+
+    to{
+        transform:translateX(-100%);
+    }
+}
+/* =====================================================
+   STYLE.CSS (PART 2 OF 2)
+===================================================== */
+
+/* ===============================
+   TEXT AREA
+================================ */
+
+textarea{
+
+    background:rgba(255,255,255,.78)!important;
+
+    color:#111!important;
+
+    font-size:17px!important;
+
+    border-radius:14px!important;
+
+    border:1px solid rgba(0,0,0,.12)!important;
+
+    backdrop-filter:blur(10px);
+
+    padding:12px!important;
+}
+
+textarea::placeholder{
+
+    color:#555!important;
+
+    font-size:17px!important;
+}
+
+textarea:focus{
+
+    border:2px solid #0b1f3a!important;
+
+    box-shadow:0 0 12px rgba(11,31,58,.25)!important;
+}
+
+/* ===============================
+   TEXT AREA LABEL
+================================ */
+
+div[data-testid="stTextArea"] label p{
+
+    font-size:34px!important;
+
+    font-weight:900!important;
+
+    color:#0b1f3a!important;
+
+    letter-spacing:.5px;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+
+.stButton>button{
+
+    background:#0b1f3a!important;
+
+    color:white!important;
+
+    font-size:17px!important;
+
+    font-weight:700!important;
+
+    border:none!important;
+
+    border-radius:12px!important;
+
+    padding:12px 18px!important;
+
+    transition:.3s;
+}
+
+.stButton>button:hover{
+
+    background:#d71920!important;
+
+    transform:translateY(-2px) scale(1.02);
+
+    box-shadow:0 8px 18px rgba(0,0,0,.15);
+}
+
+/* ===============================
+   FEATURES / INFO BOXES
+================================ */
+
+.stSuccess,
+.stInfo,
+.stWarning,
+.stError{
+
+    background:rgba(255,255,255,.90)!important;
+
+    border-radius:16px!important;
+
+    border:1px solid rgba(0,0,0,.08)!important;
+
+    box-shadow:0 6px 16px rgba(0,0,0,.10)!important;
+
+    color:#111!important;
+}
+
+.stSuccess *,
+.stInfo *,
+.stWarning *,
+.stError *{
+
+    color:#111!important;
+
+    font-size:17px!important;
+
+    line-height:1.8!important;
+}
+
+/* ===============================
+   SIDEBAR HEADINGS
+================================ */
+
+h3{
+
+    font-size:30px!important;
+
+    font-weight:800!important;
+
+    color:#0b1f3a!important;
+}
+
+/* ===============================
+   METRIC CARD
+================================ */
+
+[data-testid="stMetric"]{
+
+    background:rgba(255,255,255,.82);
+
+    padding:16px;
+
+    border-radius:16px;
+
+    border:1px solid rgba(0,0,0,.08);
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+/* ===============================
+   PROGRESS BAR
+================================ */
+
+.stProgress{
+
+    margin-top:12px;
+
+    margin-bottom:18px;
+}
+
+/* ===============================
+   LABELS
+================================ */
+
+label{
+
+    color:#0b1f3a!important;
+
+    font-weight:700!important;
+}
+
+/* ===============================
+   HORIZONTAL LINE
+================================ */
+
+hr{
+
+    border:none;
+
+    border-top:1px solid rgba(0,0,0,.15);
+
+    margin:22px 0;
+}
+
+/* ===============================
+   SCROLLBAR
+================================ */
+
+::-webkit-scrollbar{
+
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+
+    background:rgba(255,255,255,.20);
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#0b1f3a;
+
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#d71920;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+
+.footer{
+
+    text-align:center;
+
+    margin-top:30px;
+
+    color:#0b1f3a;
+
+    font-size:18px;
+
+    font-weight:600;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media(max-width:768px){
+
+    h1{
+
+        font-size:42px!important;
+    }
+
+    h3{
+
+        font-size:24px!important;
+    }
+
+    .breaking-ticker{
+
+        font-size:15px;
+
+        padding-left:110px;
+    }
+
+    div[data-testid="stTextArea"] label p{
+
+        font-size:28px!important;
+    }
+
+    .news-card{
+
+        padding:16px;
+    }
+}
